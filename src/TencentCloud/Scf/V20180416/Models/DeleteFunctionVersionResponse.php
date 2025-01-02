@@ -18,35 +18,19 @@ namespace TencentCloud\Scf\V20180416\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * ListAliases返回参数结构体
+ * DeleteFunctionVersion返回参数结构体
  *
- * @method array getAliases() 获取别名列表
- * @method void setAliases(array $Aliases) 设置别名列表
- * @method integer getTotalCount() 获取别名总数
- * @method void setTotalCount(integer $TotalCount) 设置别名总数
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class ListAliasesResponse extends AbstractModel
+class DeleteFunctionVersionResponse extends AbstractModel
 {
-    /**
-     * @var array 别名列表
-     */
-    public $Aliases;
-
-    /**
-     * @var integer 别名总数
-     */
-    public $TotalCount;
-
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param array $Aliases 别名列表
-     * @param integer $TotalCount 别名总数
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -62,19 +46,6 @@ class ListAliasesResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Aliases",$param) and $param["Aliases"] !== null) {
-            $this->Aliases = [];
-            foreach ($param["Aliases"] as $key => $value){
-                $obj = new Alias();
-                $obj->deserialize($value);
-                array_push($this->Aliases, $obj);
-            }
-        }
-
-        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
-            $this->TotalCount = $param["TotalCount"];
-        }
-
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
             $this->RequestId = $param["RequestId"];
         }
